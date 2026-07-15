@@ -64,3 +64,15 @@
     @apply bg-background text-foreground font-sans antialiased;
   }
 }
+
+/* Keep Clerk auth cards within the viewport on narrow screens */
+.cl-rootBox,
+.cl-cardBox {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+.cl-card {
+  width: 100% !important;
+  margin: 0 !important;
+}
