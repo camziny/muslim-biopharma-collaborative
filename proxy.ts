@@ -8,6 +8,12 @@ const isPublicRoute = createRouteMatcher([
   "/sign-in(.*)",
   "/sign-up(.*)",
   "/api/webhooks(.*)",
+  // Next.js metadata assets must be crawlable for favicons + social previews
+  "/icon(.*)",
+  "/apple-icon(.*)",
+  "/opengraph-image(.*)",
+  "/twitter-image(.*)",
+  "/favicon.ico",
 ]);
 
 export default clerkMiddleware(async (auth, request) => {
