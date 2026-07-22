@@ -21,10 +21,10 @@
   --accent-foreground: oklch(0.205 0 0);
   --destructive: oklch(0.577 0.21 27);
   --destructive-foreground: oklch(0.985 0 0);
-  --border: oklch(0.912 0 0);
-  --input: oklch(0.912 0 0);
+  --border: oklch(0.922 0 0);
+  --input: oklch(0.922 0 0);
   --ring: oklch(0.708 0 0);
-  --radius: 0.5rem;
+  --radius: 0.625rem;
 }
 
 @theme inline {
@@ -47,8 +47,9 @@
   --color-border: var(--border);
   --color-input: var(--input);
   --color-ring: var(--ring);
-  --font-sans: var(--font-inter);
-  --font-heading: var(--font-inter);
+  --font-sans: var(--font-geist-sans);
+  --font-heading: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
   --radius-sm: calc(var(--radius) - 2px);
   --radius-md: var(--radius);
   --radius-lg: calc(var(--radius) + 2px);
@@ -62,7 +63,40 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
   }
+
+  ::selection {
+    background-color: var(--foreground);
+    color: var(--background);
+  }
+}
+
+@layer components {
+  /* Small monospace label used above page and section titles */
+  .eyebrow {
+    @apply font-mono text-xs font-medium tracking-[0.14em] text-muted-foreground uppercase;
+  }
+}
+
+/* Subtle dotted grid that fades out — used behind the landing hero */
+.bg-dots {
+  background-image: radial-gradient(
+    var(--border) 1px,
+    transparent 1px
+  );
+  background-size: 24px 24px;
+  -webkit-mask-image: radial-gradient(
+    ellipse 55% 55% at 50% 40%,
+    #000 30%,
+    transparent 100%
+  );
+  mask-image: radial-gradient(
+    ellipse 55% 55% at 50% 40%,
+    #000 30%,
+    transparent 100%
+  );
 }
 
 /* Keep Clerk auth cards within the viewport on narrow screens */

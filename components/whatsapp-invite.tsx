@@ -1,6 +1,13 @@
 import Link from "next/link";
 import { ExternalLink } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import { getWhatsAppInviteLink } from "@/lib/whatsapp";
 
 type WhatsAppInviteProps = {
@@ -12,41 +19,45 @@ export function WhatsAppInvite({ profileComplete }: WhatsAppInviteProps) {
 
   if (!profileComplete) {
     return (
-      <div className="rounded-lg border border-dashed p-4">
-        <p className="text-sm font-medium text-muted-foreground">
-          WhatsApp group
-        </p>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Complete and save your profile above to unlock the member invite.
-        </p>
-        <div className="mt-3">
+      <Card>
+        <CardHeader>
+          <CardTitle>WhatsApp group</CardTitle>
+          <CardDescription>
+            Complete and save your profile above to unlock the invite.
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
           <Button size="sm" disabled>
             Open invite
             <ExternalLink />
           </Button>
-        </div>
-      </div>
+        </CardContent>
+      </Card>
     );
   }
 
   if (!inviteLink) {
     return (
-      <div className="rounded-lg border p-4">
-        <p className="text-sm font-medium">WhatsApp group</p>
-        <p className="mt-1 text-sm text-muted-foreground">
-          Your profile is complete. The invite link will be available soon.
-        </p>
-      </div>
+      <Card>
+        <CardHeader>
+          <CardTitle>WhatsApp group</CardTitle>
+          <CardDescription>
+            Your profile is complete. The invite link will be available soon.
+          </CardDescription>
+        </CardHeader>
+      </Card>
     );
   }
 
   return (
-    <div className="rounded-lg border p-4">
-      <p className="text-sm font-medium">WhatsApp group</p>
-      <p className="mt-1 text-sm text-muted-foreground">
-        Your profile is complete. Join the member group below.
-      </p>
-      <div className="mt-3">
+    <Card>
+      <CardHeader>
+        <CardTitle>WhatsApp group</CardTitle>
+        <CardDescription>
+          Your profile is complete. Join the member group below.
+        </CardDescription>
+      </CardHeader>
+      <CardContent>
         <Button
           size="sm"
           render={
@@ -56,7 +67,7 @@ export function WhatsAppInvite({ profileComplete }: WhatsAppInviteProps) {
           Open invite
           <ExternalLink />
         </Button>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 }
