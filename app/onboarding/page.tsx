@@ -56,12 +56,13 @@ export default async function OnboardingPage() {
   return (
     <main className="mx-auto w-full max-w-xl flex-1 px-6 py-16">
       <PageHeader
+        eyebrow="Registration"
         title="Complete your profile"
         description={
           <>
             Signed in as{" "}
-            <span className="font-medium text-foreground">{email}</span>. You
-            can update this later from your dashboard.
+            <span className="font-medium text-foreground">{email}</span>. You can
+            update this anytime from your dashboard.
           </>
         }
       />
@@ -70,7 +71,7 @@ export default async function OnboardingPage() {
         <CardHeader>
           <CardTitle>Directory details</CardTitle>
           <CardDescription>
-            Visible to the board in the member directory.
+            Shared with the board in the member directory.
           </CardDescription>
         </CardHeader>
         <CardContent>

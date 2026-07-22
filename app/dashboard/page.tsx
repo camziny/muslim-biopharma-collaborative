@@ -73,8 +73,9 @@ export default async function DashboardPage() {
   return (
     <main className="mx-auto w-full max-w-xl flex-1 px-6 py-16">
       <PageHeader
+        eyebrow="Dashboard"
         title={`Welcome back, ${member.name.split(" ")[0] || "there"}`}
-        description="Complete your profile, then join the member WhatsApp group."
+        description="Keep your profile up to date and access the member group."
       />
 
       <div className="mt-8 space-y-6">
@@ -82,7 +83,7 @@ export default async function DashboardPage() {
           <CardHeader>
             <CardTitle>Your profile</CardTitle>
             <CardDescription>
-              Save your details to unlock the WhatsApp invite below.
+              Save your details to unlock the group invite below.
             </CardDescription>
           </CardHeader>
           <CardContent>

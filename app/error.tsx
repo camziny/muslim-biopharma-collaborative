@@ -16,12 +16,15 @@ export default function Error({
   }, [error]);
 
   return (
-    <main className="mx-auto flex w-full max-w-lg flex-1 flex-col items-center justify-center gap-4 px-6 py-20 text-center">
-      <h1 className="text-2xl font-medium tracking-tight">Something went wrong</h1>
+    <main className="mx-auto flex w-full max-w-lg flex-1 flex-col items-center justify-center gap-3 px-6 py-20 text-center">
+      <p className="eyebrow">Error</p>
+      <h1 className="text-2xl font-semibold tracking-tight">
+        Something went wrong
+      </h1>
       <p className="text-sm text-muted-foreground">
-        An unexpected error occurred. You can try again, or return home.
+        An unexpected error occurred. Try again, or return home.
       </p>
-      <div className="flex gap-2">
+      <div className="mt-2 flex gap-2">
         <Button onClick={reset}>Try again</Button>
         <Button variant="outline" render={<Link href="/" />}>
           Go home
